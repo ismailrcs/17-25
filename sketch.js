@@ -32,7 +32,7 @@ function draw(){
   if(player.sprite.x>=windowWidth*9/10){
   
     form.lightHousebg.show();
-  
+    
   }
 
     player.sprite.collide(ground);
