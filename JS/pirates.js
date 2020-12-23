@@ -54,7 +54,6 @@ class Pirates {
         text(this.health,this.sprite.x,windowHeight/2);
        
       }
-  
 
     }
 

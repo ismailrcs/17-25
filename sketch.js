@@ -71,17 +71,24 @@ function draw(){
 
     }
 
-    if(player.sprite.x>=windowWidth*9/10&&pirates[0,1].health<=0){
-  
-      form.lightHousebg.show();
-      
-    }
-
     pirates[p].display();
     pirates[p].sprite.collide(ground);
 
-    
+     if(player.sprite.x>=windowWidth*9/10&&pirates[p].health<=0){
+  
+      form.lightHousebg.hide();
+      pirates[p].sprite.visible = false;
 
+      console.log(pirates.length,p);
+
+      if(p==(pirates.length-1)){
+       player.sprite.x = windowWidth/5;
+        player.sprite.y = windowHeight*2/3;
+      
+    }
+    
+  }
+  
 }
 
 player.display();
