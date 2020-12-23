@@ -5,6 +5,7 @@ class Pirates {
         this.sprite = createSprite(x,y,55,55);
         this.status = "normal";
         this.healthSprite = createSprite(x,y,75,190);
+        this.sprite2 = createSprite(x,y+100,50,50);
         // this.healthSprite.shapeColor = "red";
         this.healthSprite.visible = false;
         this.health = 50;

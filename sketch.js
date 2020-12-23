@@ -29,12 +29,6 @@ function draw(){
 
   background(bg);
 
-  if(player.sprite.x>=windowWidth*9/10){
-  
-    form.lightHousebg.show();
-    
-  }
-
     player.sprite.collide(ground);
 
     if(gameState=="beach"){
@@ -49,6 +43,9 @@ function draw(){
 
   for (var p in pirates){
 
+    player.sprite.bounceOff(pirates[p].sprite2);
+
+   
     //Npc Attack when player gets close
     if(player.sprite.isTouching(pirates[p].sprite)){
 
@@ -71,6 +68,12 @@ function draw(){
 
      pirates[p].health--;
 
+    }
+
+    if(player.sprite.x>=windowWidth*9/10&&pirates[0,1].health<=0){
+  
+      form.lightHousebg.show();
+      
     }
 
     pirates[p].display();
