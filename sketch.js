@@ -63,7 +63,7 @@ function draw(){
     //decrease heath of pc when heathsprite is hit
     if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5){
 
-      player.health--;
+      player.health-=2;
 
     }
     //decrease health for npc
