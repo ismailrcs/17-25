@@ -8,6 +8,7 @@ class Pirates {
         this.sprite2 = createSprite(x,y+100,50,50);
         // this.healthSprite.shapeColor = "red";
         this.healthSprite.visible = false;
+        this.sprite2.visible = false;
         this.health = 50;
 
         this.idleNPC = loadAnimation("./Animations/Npc_back/Nb1.png","./Animations/Npc_back/Nb2.png");
@@ -21,12 +22,15 @@ class Pirates {
         "./Animations/Npc_attackfront/Naf3.png" ,"./Animations/Npc_attackfront/Naf4.png","./Animations/Npc_attackfront/Naf5.png",
         "./Animations/Npc_attackfront/Naf6.png");
 
+        this.npcDead = loadAnimation("./Animations/npc dead.jpg");
 
         this.sprite.addAnimation("NpcLeft",this.idleNPC);
 
         this.sprite.addAnimation("AttackLeft",this.NpcAttackBack);
 
         this.sprite.addAnimation("AttackBack",this.NpcAttackFront);
+
+        this.sprite.addAnimation("Npcdead",this.npcDead);
         
         this.sprite.scale = 0.7;
 
@@ -39,7 +43,18 @@ class Pirates {
 
         this.sprite.velocityY+=0.9;
 
+    if(this.health<=0){
+
+       this.sprite.changeAnimation("Npcdead");
+
+       this.sprite2.y = windowHeight*2;
+  
+      }else{
+
         text(this.health,this.sprite.x,windowHeight/2);
+       
+      }
+  
 
     }
 

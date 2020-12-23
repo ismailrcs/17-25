@@ -9,7 +9,8 @@ var gameState = "beach";
     function preload(){
 
   bg = loadImage("./Animations/background2.jpg") ;
-    
+      
+
   pirates = [];
 
   game = new Game();
@@ -58,7 +59,7 @@ function draw(){
 
     }
     //decrease heath of pc when heathsprite is hit
-    if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5){
+    if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5&&pirates[p].health>0){
 
       player.health--;
 
