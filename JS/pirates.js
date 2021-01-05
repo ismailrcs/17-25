@@ -22,7 +22,7 @@ class Pirates {
         "./Animations/Npc_attackfront/Naf3.png" ,"./Animations/Npc_attackfront/Naf4.png","./Animations/Npc_attackfront/Naf5.png",
         "./Animations/Npc_attackfront/Naf6.png");
 
-        this.npcDead = loadAnimation("./Animations/npc dead.jpg");
+        this.npcDead = loadAnimation("./Animations/npc dead.png");
 
         this.sprite.addAnimation("NpcLeft",this.idleNPC);
 
@@ -47,6 +47,8 @@ class Pirates {
 
        this.sprite.changeAnimation("Npcdead");
 
+       this.sprite.scale = 0.56;
+       
        this.sprite2.y = windowHeight*2;
   
       }else{

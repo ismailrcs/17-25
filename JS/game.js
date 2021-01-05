@@ -23,7 +23,8 @@ class Game {
 
     play() {
 
-
+        pirates.push(new Pirates(windowWidth/2,windowHeight*2/3-20));
+        pirates.push(new Pirates(windowWidth/1.5,windowHeight*2/3-20));
 
 
     }

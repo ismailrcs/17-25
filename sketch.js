@@ -86,6 +86,14 @@ function draw(){
         player.sprite.y = windowHeight*2/3;
       
     }
+
+    // gameState = "lightHouse";
+    
+    // if(gameState = "lightHouse"){
+    
+    //   game.play();
+    
+    // }
     
   }
   
