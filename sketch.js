@@ -6,99 +6,88 @@ var jumprightPC,attackleftPC;
 var bg,form,game;
 var gameState = "beach";
 
-    function preload(){
+function preload(){
 
-  bg = loadImage("./Animations/background2.jpg") ;
-      
+    bg = loadImage("./Animations/background2.jpg") ;
 
-  pirates = [];
+    lightHousebg = loadImage("./Animations/LighthouseGIF.png");
 
-  game = new Game();
-  game.start();
+    brickbg = loadImage("./Animations/brickwall.jpg");
+
+    pirates = [];
+
+    game = new Game();
+    game.start();
   
-     }
+ }
 
-function setup() {
-createCanvas(window.innerWidth,window.innerHeight);
-
-  player = new Player(windowWidth/5,windowHeight*2/3);
-  form = new Form();
-
-}
-
-function draw(){
-
-  background(bg);
-
-    player.sprite.collide(ground);
-
-    if(gameState=="beach"){
-
-      game.play();
-
-    }
-
-  //   //follow the player/game camera
-  // camera.x = player.sprite.x+windowWidth/4
-  // camera.y = windowHeight*2/3-windowHeight/5
-
-  for (var p in pirates){
-
-    player.sprite.bounceOff(pirates[p].sprite2);
-
-   
-    //Npc Attack when player gets close
-    if(player.sprite.isTouching(pirates[p].sprite)){
-
-      pirates[p].sprite.changeAnimation("AttackLeft",);
-
-    }
-    else{
-
-        pirates[p].sprite.changeAnimation("NpcLeft",);
-
-    }
-    //decrease heath of pc when heathsprite is hit
-    if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5&&pirates[p].health>0){
-
-      player.health--;
-
-    }
-    //decrease health for npc
-    if(player.sprite.isTouching(pirates[p].healthSprite)&& player.status=="attack"){
-
-     pirates[p].health--;
-
-    }
-
-    pirates[p].display();
-    pirates[p].sprite.collide(ground);
-
-     if(player.sprite.x>=windowWidth*9/10&&pirates[p].health<=0){
-  
-      form.lightHousebg.hide();
-      pirates[p].sprite.visible = false;
-
-      console.log(pirates.length,p);
-
-      if(p==(pirates.length-1)){
-       player.sprite.x = windowWidth/5;
-        player.sprite.y = windowHeight*2/3;
-      
-    }
-
-    // gameState = "lightHouse";
+  function setup() {
     
-    // if(gameState = "lightHouse"){
-    
-    //   game.play();
-    
-    // }
-    
+    createCanvas(window.innerWidth,window.innerHeight);
+
+    player = new Player(windowWidth/5,windowHeight*2/3);
+    form = new Form();
+
   }
-  
-}
 
+  function draw(){
+
+    background(bg);
+
+      player.sprite.collide(ground);
+
+      if(gameState=="beach"){
+
+        game.beach();
+
+      }
+
+      if(gameState=="lightHouse"){
+
+        game.lightHouse();
+
+      }
+
+      if(gameState == "brickWall"){
+
+        game.brickWall();
+
+      }
+
+      for (var p in pirates){
+
+        player.sprite.bounceOff(pirates[p].sprite2);
+  
+     
+        //Npc Attack when player gets close
+        if(player.sprite.isTouching(pirates[p].sprite)){
+  
+        pirates[p].sprite.changeAnimation("AttackLeft",);
+  
+      }
+        else{
+  
+          pirates[p].sprite.changeAnimation("NpcLeft",);
+  
+      }
+      //decrease heath of pc when heathsprite is hit
+      if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5&&pirates[p].health>0){
+  
+        player.health--;
+  
+      }
+      //decrease health for npc
+      if(player.sprite.isTouching(pirates[p].healthSprite)&& player.status=="attack"){
+  
+       pirates[p].health--;
+  
+      }
+  
+      pirates[p].display();
+      pirates[p].sprite.collide(ground);
+    
+    }
+  
 player.display();
 
 drawSprites();

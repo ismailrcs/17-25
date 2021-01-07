@@ -10,10 +10,10 @@ class Player {
         this.health = 100;
         this.healthSprite.debug =  true;
 
-        this.healthBar = document.createElement("PROGRESS");
-        this.healthBar.setAttribute("max",100);
-        this.healthBar.setAttribute("value",this.health);
-        document.body.appendChild(this.healthBar);
+        // this.healthBar = document.createElement("PROGRESS");
+        // this.healthBar.setAttribute("max",100);
+        // this.healthBar.setAttribute("value",this.health);
+        // document.body.appendChild(this.healthBar);
         
 
         this.sprite.setCollider("rectangle",0,0,135,115 );
