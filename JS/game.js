@@ -85,6 +85,8 @@ class Game {
 
         background(brickbg);
 
+        form.arrow.position(windowWidth/1.2,windowHeight/10.2);
+
     }
 
     }
