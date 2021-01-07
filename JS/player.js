@@ -61,9 +61,9 @@ class Player {
 
         this.sprite.scale = 1.4;
 
-        this.sprite.debug = true;
+        // this.sprite.debug = true;
 
-        this.healthSprite.debug = true;
+        // this.healthSprite.debug = true;
 
        
     }

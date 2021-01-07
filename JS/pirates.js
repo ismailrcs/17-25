@@ -9,7 +9,7 @@ class Pirates {
         // this.healthSprite.shapeColor = "red";
         this.healthSprite.visible = false;
         this.sprite2.visible = false;
-        this.health = 50;
+        this.health = 0;
 
         this.idleNPC = loadAnimation("./Animations/Npc_back/Nb1.png","./Animations/Npc_back/Nb2.png");
         this.idleNPC.frameDelay = 6;
@@ -34,7 +34,7 @@ class Pirates {
         
         this.sprite.scale = 0.7;
 
-        this.sprite.debug = true;
+        // this.sprite.debug = true;
 
         //this.sprite.setCollider("rectangle",0,-38,300,300)
     }

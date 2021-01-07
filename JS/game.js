@@ -15,8 +15,29 @@ class Game {
         pirates.push(new Pirates(windowWidth/2,windowHeight*2/3-20));
         pirates.push(new Pirates(windowWidth/1.5,windowHeight*2/3-20));
 
-       
+        pt1 = createSprite(windowWidth*1/5,windowHeight*9.1/10,windowWidth/5,windowHeight/30);
+        
+        pt2 = createSprite(windowWidth*2.5/5,windowHeight*7/10,windowWidth/5,windowHeight/30);
 
+        pt3 = createSprite(windowWidth*4/5,windowHeight*5/10,windowWidth/5,windowHeight/30);
+
+        ipt1 = createSprite(windowWidth*1/5,windowHeight*9.1/10,windowWidth/8,windowHeight/30);
+
+        ipt2 = createSprite(windowWidth*2.5/5,windowHeight*7/10,windowWidth/8,windowHeight/30);
+
+        ipt3 = createSprite(windowWidth*4/5,windowHeight*5/10,windowWidth/8,windowHeight/30);
+
+        pt1.visible = false;
+
+        pt2.visible = false;
+
+        pt3.visible = false;
+
+        ipt1.visible = false;
+
+        ipt2.visible = false;
+
+        ipt3.visible = false;
     }
 
     beach(){
@@ -87,6 +108,16 @@ class Game {
 
         form.arrow.position(windowWidth/1.2,windowHeight/10.2);
 
+        pt1.visible = true;
+        pt2.visible = true;
+        pt3.visible = true;
+
+        ground.y = windowHeight*2;
+
+        player.sprite.collide(ipt1);
+        player.sprite.collide(ipt2);
+        player.sprite.collide(ipt3);
+      
     }
 
     }

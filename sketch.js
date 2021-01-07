@@ -6,6 +6,9 @@ var jumprightPC,attackleftPC;
 var bg,form,game;
 var gameState = "beach";
 
+var pt1,pt2,pt3,pt4;
+var ipt1,ipt2,ipt3;
+
 function preload(){
 
     bg = loadImage("./Animations/background2.jpg") ;
