@@ -117,7 +117,9 @@ class Game {
         player.sprite.collide(ipt1);
         player.sprite.collide(ipt2);
         player.sprite.collide(ipt3);
-      
+     
+
+
     }
 
     }
