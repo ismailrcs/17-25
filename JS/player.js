@@ -96,8 +96,12 @@ class Player {
         }
     } 
         
-    if(keyDown(UP_ARROW)&&(this.sprite.y>465||this.sprite.collide(ipt1)||this.sprite.collide(ipt2)||this.sprite.collide(ipt3))){
-    
+    if(keyDown(UP_ARROW)&&(this.sprite.collide(ground)||this.sprite.collide(ipt1)||this.sprite.collide(ipt2)||this.sprite.collide(ipt3))){
+        
+        console.log(this.sprite.y);
+        console.log(this.sprite.collide(ipt1));
+        console.log(this.sprite.collide(ipt2));
+        console.log(this.sprite.collide(ipt3));
         this.sprite.velocityY = -12;
         if(this.direction == "right"){
         this.sprite.changeAnimation("Jumpright");

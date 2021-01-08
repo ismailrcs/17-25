@@ -121,6 +121,8 @@ class Game {
         if(player.sprite.x>=windowWidth/1.2&&player.sprite.y>=windowHeight/10){
 
                 gameState = "brickwall2";
+    
+                player.sprite.x = windowWidth/5;
 
         }
 
@@ -131,6 +133,8 @@ class Game {
 
             background(brickbg);
 
+            player.health = 100;
+
             pt1.visible = false;
             pt2.visible = false;
 
@@ -139,10 +143,6 @@ class Game {
             pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
 
             pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
-
-            // player.sprite.x = windowWidth/5;
-
-            // player.sprite.y = windowHeight*2/3;
 
 
         }
