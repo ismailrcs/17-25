@@ -57,6 +57,12 @@ function preload(){
 
       }
 
+      if(gameState == "brickwall2"){
+
+        game.brickWall2();
+
+      }
+
       for (var p in pirates){
 
         player.sprite.bounceOff(pirates[p].sprite2);

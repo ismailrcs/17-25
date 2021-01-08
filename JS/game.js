@@ -118,9 +118,34 @@ class Game {
         player.sprite.collide(ipt2);
         player.sprite.collide(ipt3);
      
+        if(player.sprite.x>=windowWidth/1.2&&player.sprite.y>=windowHeight/10){
+
+                gameState = "brickwall2";
+
+        }
 
 
     }
+
+        brickWall2(){
+
+            background(brickbg);
+
+            pt1.visible = false;
+            pt2.visible = false;
+
+            player.sprite.collide(pt3);
+
+            pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
+
+            pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
+
+            // player.sprite.x = windowWidth/5;
+
+            // player.sprite.y = windowHeight*2/3;
+
+
+        }
 
     }
 
