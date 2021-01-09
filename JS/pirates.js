@@ -47,6 +47,8 @@ class Pirates {
 
        this.sprite.changeAnimation("Npcdead");
 
+       this.sprite.setCollider("rectangle",0,0,100,100);
+
        this.sprite.scale = 0.56;
        
        this.sprite2.y = windowHeight*2;
@@ -55,6 +57,12 @@ class Pirates {
 
         text(this.health,this.sprite.x,windowHeight/2);
        
+      }
+
+      if(player.health<=0){
+
+        gOver.visible = true;
+        
       }
 
     }

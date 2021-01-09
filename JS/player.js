@@ -96,12 +96,8 @@ class Player {
         }
     } 
         
-    if(keyDown(UP_ARROW)&&(this.sprite.collide(ground)||this.sprite.collide(ipt1)||this.sprite.collide(ipt2)||this.sprite.collide(ipt3))){
+    if(this.sprite.collide(ground)&&keyDown(UP_ARROW)){
         
-        console.log(this.sprite.y);
-        console.log(this.sprite.collide(ipt1));
-        console.log(this.sprite.collide(ipt2));
-        console.log(this.sprite.collide(ipt3));
         this.sprite.velocityY = -12;
         if(this.direction == "right"){
         this.sprite.changeAnimation("Jumpright");
@@ -134,8 +130,44 @@ class Player {
     this.healthSprite.x=this.sprite.x;
     this.healthSprite.y=this.sprite.y;
 
-    text(this.health,this.sprite.x,windowHeight/2);
+    for(var p in pirates){
 
+        
+        if(this.health<=0){
+
+            gOver.visible = true;
+            console.log("gameOver");
+  
+            pirates[p].sprite.visible = false;
+  
+            this.sprite.visible = false;
+
+            form.arrow.hide();
+          
+          }else{
+
+            text(this.health,this.sprite.x,windowHeight/2);
+            
+            }
+
+            if(gameState == "brickWall"&&this.sprite.y>windowHeight*9.5/10){
+
+                gOver.visible = true;
+                console.log("gameOver");
+      
+                pirates[p].sprite.visible = false;
+      
+                this.sprite.visible = false;
+    
+                form.arrow.hide();
+              
+              }else{
+
+                text(this.health,this.sprite.x,windowHeight/2);
+                
+                }
+
+    }  
 
     }
 

@@ -5,6 +5,7 @@ var idleNPC,attackrightPC;
 var jumprightPC,attackleftPC;
 var bg,form,game;
 var gameState = "beach";
+var gOver,button;
 
 var pt1,pt2,pt3,pt4;
 var ipt1,ipt2,ipt3;
@@ -16,6 +17,10 @@ function preload(){
     lightHousebg = loadImage("./Animations/LighthouseGIF.png");
 
     brickbg = loadImage("./Animations/brickwall.jpg");
+
+    gameOver = loadAnimation("./Animations/gameover.png");
+
+    redbutton = loadAnimation("Animations/redbutton.png");
 
     pirates = [];
 
@@ -31,13 +36,26 @@ function preload(){
     player = new Player(windowWidth/5,windowHeight*2/3);
     form = new Form();
 
+    gOver = createSprite(windowWidth/2,windowHeight/2,10,10);
+
+    gOver.addAnimation("gameover",gameOver);
+
+    gOver.visible = false;
+
+    button =  createSprite(windowWidth/1.2,windowHeight/3,50,50);
+
+    button.addAnimation("red",redbutton);
+
+    button.scale = 0.2;
+
+    button.visible = false;
+
   }
 
   function draw(){
 
     background(bg);
 
-      player.sprite.collide(ground);
 
       if(gameState=="beach"){
 
@@ -65,6 +83,7 @@ function preload(){
 
       for (var p in pirates){
 
+
         player.sprite.bounceOff(pirates[p].sprite2);
   
      
@@ -82,7 +101,7 @@ function preload(){
       //decrease heath of pc when heathsprite is hit
       if(player.healthSprite.isTouching(pirates[p].sprite)&&pirates[p].sprite.animation.getFrame()===5&&pirates[p].health>0){
   
-        player.health--;
+        player.health-=2;
   
       }
       //decrease health for npc
@@ -95,6 +114,7 @@ function preload(){
       pirates[p].display();
       pirates[p].sprite.collide(ground);
     
+
     }
   
 player.display();

@@ -38,6 +38,9 @@ class Game {
         ipt2.visible = false;
 
         ipt3.visible = false;
+
+        
+
     }
 
     beach(){
@@ -94,6 +97,12 @@ class Game {
 
                 pirates = [];
 
+                pirates.push(new Pirates(windowWidth*2.5/5,windowHeight*6/10));
+                    
+                pirates[p].sprite2.y = pirates[p].sprite.y + 100;
+
+                player.health+=40;
+
             }
 
         }
@@ -114,18 +123,47 @@ class Game {
 
         ground.y = windowHeight*2;
 
-        player.sprite.collide(ipt1);
-        player.sprite.collide(ipt2);
-        player.sprite.collide(ipt3);
-     
-        if(player.sprite.x>=windowWidth/1.2&&player.sprite.y>=windowHeight/10){
+        if((player.sprite.collide(ipt1)||player.sprite.collide(ipt2)||player.sprite.collide(ipt3))&&keyDown(UP_ARROW)){
+        
+            player.sprite.velocityY = -17;
+            if(player.direction == "right"){
+            player.sprite.changeAnimation("Jumpright");
+            }else if(player.direction == "left"){
+    
+                player.sprite.changeAnimation("Jumpleft");
+    
+            }
+    
+        }
+
+        for(var p in pirates){
+
+        pirates[p].sprite.collide(ipt2);
+
+        
+        if(player.sprite.x>=windowWidth/1.2&&player.sprite.y>=windowHeight/10&&pirates[p].health<=0){
 
                 gameState = "brickwall2";
     
                 player.sprite.x = windowWidth/5;
 
-        }
+                pirates[p].sprite.visible = false;
 
+                pirates = [];
+
+                pirates.push(new Pirates(windowWidth*2.5/5,windowHeight*6/10));
+
+                pirates[p].sprite.scale = 0.7;
+
+                pirates[p].health = 75;
+
+                player.health = 100;
+
+                pirates[p].sprite2.y = pirates[p].sprite.y + 100;
+
+        }
+        
+    }
 
     }
 
@@ -133,17 +171,38 @@ class Game {
 
             background(brickbg);
 
-            player.health = 100;
+            button.visible = true;
+
+            form.arrow.hide();
 
             pt1.visible = false;
             pt2.visible = false;
+            pt3.visible = false;
 
-            player.sprite.collide(pt3);
+            ground.visible = true;
 
-            pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
+            ground.y = windowHeight*2/3
 
-            pt3 = createSprite(windowWidth*4/10,windowHeight*5/10,windowWidth*10,windowHeight/30);
+            for(var p in pirates){
 
+                if(pirates[p].health<=0){
+
+                }
+
+              if(player.sprite.isTouching(button)&&pirates[p].health<=0){
+
+                form.lighthousegif.show();
+
+                textSize(18);
+                textFont("Georgia");
+                textStyle(BOLD);
+
+                text("YOU WIN",windowWidth/2,windowHeight/2);
+                
+
+              }
+
+            }
 
         }
 
