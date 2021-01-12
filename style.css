@@ -5,3 +5,19 @@ html, body {
   height: 100vh;
 
 }
+
+canvas{
+
+  display: inline;
+
+  margin : 0;
+
+  height : 100vh;
+
+}
+
+ div.mobileMode{
+
+  display: none;
+
+ }

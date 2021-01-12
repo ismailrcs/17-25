@@ -50,6 +50,8 @@ function preload(){
 
     button.visible = false;
 
+    window.onresize = function(){ location.reload(); }
+
   }
 
   function draw(){

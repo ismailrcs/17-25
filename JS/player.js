@@ -146,7 +146,19 @@ class Player {
           
           }else{
 
-            text(this.health,this.sprite.x,windowHeight/2);
+                fill("White");
+                stroke("White");
+                textSize(14);
+                   
+        if(gameState == "brickWall"||gameState == "brickwall2"){
+
+            text(this.health,this.sprite.x,windowHeight/4);
+  
+          }else{
+  
+            text(this.health,this.sprite.x,windowHeight/2);          
+          
+        }
             
             }
 
@@ -163,9 +175,22 @@ class Player {
               
               }else{
 
-                text(this.health,this.sprite.x,windowHeight/2);
+                fill("White");
+                stroke("White");
+                textSize(14);
+                   
+        if(gameState == "brickWall"||gameState == "brickwall2"){
+
+            text(this.health,this.sprite.x,windowHeight/4);
+  
+          }else{
+  
+            text(this.health,this.sprite.x,windowHeight/2);          
+          
+        }
+       
                 
-                }
+            }
 
     }  
 

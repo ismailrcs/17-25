@@ -9,7 +9,7 @@ class Pirates {
         // this.healthSprite.shapeColor = "red";
         this.healthSprite.visible = false;
         this.sprite2.visible = false;
-        this.health = 50;
+        this.health = 0;
 
         this.idleNPC = loadAnimation("./Animations/Npc_back/Nb1.png","./Animations/Npc_back/Nb2.png");
         this.idleNPC.frameDelay = 6;
@@ -55,8 +55,18 @@ class Pirates {
   
       }else{
 
+        fill("White");
+        stroke("White");
+         
+        if(gameState == "brickWall"||gameState == "brickwall2"){
+
+          text(this.health,this.sprite.x,windowHeight/4);
+
+        }else{
+
         text(this.health,this.sprite.x,windowHeight/2);
-       
+        
+        }
       }
 
       if(player.health<=0){
