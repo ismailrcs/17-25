@@ -118,7 +118,7 @@ function draw(){
     pirates[p].display();
     pirates[p].sprite.collide(ground);
     
-    if(window.innerWidth<=600){
+    if(window.innerWidth<=1000){
 
   rightButton = createButton(' > ');
   rightButton.position(windowWidth*9.4/10,windowHeight*9/10);
