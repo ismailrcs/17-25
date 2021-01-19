@@ -193,12 +193,7 @@ class Game {
 
                 form.lighthousegif.show();
 
-                textSize(18);
-                textFont("Georgia");
-                textStyle(BOLD);
-
-                text("YOU WIN",windowWidth/2,windowHeight/2);
-                
+                form.win.show();
 
               }
 

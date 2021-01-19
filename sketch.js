@@ -117,13 +117,15 @@ function draw(){
 
     pirates[p].display();
     pirates[p].sprite.collide(ground);
-  
-  rightButton = createButton('->');
+    
+    if(window.innerWidth<=600){
+
+  rightButton = createButton(' > ');
   rightButton.position(windowWidth*9.4/10,windowHeight*9/10);
   rightButton.size(75);
   rightButton.mousePressed(runFront);
 
-  leftButton = createButton('<-');
+  leftButton = createButton(' < ');
   leftButton.position(windowWidth*8.8/10,windowHeight*9/10);
   leftButton.size(75);
   leftButton.mousePressed(runBack);
@@ -138,6 +140,7 @@ function draw(){
   attackButton.size(75);
   attackButton.mousePressed(attack);
 
+    }
 
   }
 
